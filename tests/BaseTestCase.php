@@ -94,19 +94,36 @@ class Doctrine_Base_TestCase extends Doctrine_UnitTestCase
 
     public function testGetConnectionByTableName()
     {
-        $connectionBefore = Doctrine_Core::getConnectionByTableName('entity');
+        $conn = null;
+        $thrownException = null;
 
-        Doctrine_Manager::connection('sqlite::memory:', 'test_memory');
-        Doctrine_Manager::getInstance()->bindComponent('Entity', 'test_memory');
+        try {
+            $connectionBefore = Doctrine_Core::getConnectionByTableName('entity');
 
-        $connectionAfter = Doctrine_Core::getConnectionByTableName('entity');
+            $conn = Doctrine_Manager::connection('sqlite::memory:', 'test_memory');
+            Doctrine_Manager::getInstance()->bindComponent('Entity', 'test_memory');
 
-        $this->assertEqual($connectionAfter->getName(), 'test_memory');
+            $connectionAfter = Doctrine_Core::getConnectionByTableName('entity');
 
-        Doctrine_Manager::getInstance()->bindComponent('Entity', $connectionBefore->getName());
+            $this->assertEqual($connectionAfter->getName(), 'test_memory');
 
-        $connectionAfter = Doctrine_Core::getConnectionByTableName('entity');
-        
-        $this->assertEqual($connectionBefore->getName(), $connectionAfter->getName());
+            Doctrine_Manager::getInstance()->bindComponent('Entity', $connectionBefore->getName());
+
+            $connectionAfter = Doctrine_Core::getConnectionByTableName('entity');
+
+            $this->assertEqual($connectionBefore->getName(), $connectionAfter->getName());
+        } catch (Throwable $e) {
+            $thrownException = $e;
+        } catch (Exception $e) {
+            $thrownException = $e;
+        }
+
+        if (null !== $conn) {
+            Doctrine_Manager::getInstance()->closeConnection($conn);
+        }
+
+        if (null !== $thrownException) {
+            throw $thrownException;
+        }
     }
 }
