@@ -15,6 +15,7 @@ $excludeTickets = array(
     '1935',
     '2015',
     '2292',
+    '1783', // Known bug integer validation with numbers greater than PHP_INT_MAX.
     'DC521' // PostgreSQL specific error
 );
 
