@@ -5,6 +5,7 @@
 composer.lock
 
 # Doctrine1 ignored files
+var/
 vendor/
 tests/DoctrineTest/doctrine_tests/*
 *TestCase.php
