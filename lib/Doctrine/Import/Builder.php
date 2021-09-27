@@ -848,7 +848,7 @@ class Doctrine_Import_Builder extends Doctrine_Builder
         $ret[] = '@package    ' . $this->_phpDocPackage;
         $ret[] = '@subpackage ' . $this->_phpDocSubpackage;
         $ret[] = '@author     ' . $this->_phpDocName . ' <' . $this->_phpDocEmail . '>';
-        $ret[] = '@version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $';
+        //$ret[] = '@version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
 
         $ret = ' * ' . implode(PHP_EOL . ' * ', $ret);
         $ret = ' ' . trim($ret);
