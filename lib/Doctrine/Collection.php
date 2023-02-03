@@ -719,7 +719,7 @@ class Doctrine_Collection extends Doctrine_Access implements Countable, Iterator
      */
     public function processDiff()
     {
-        foreach (array_udiff($this->_snapshot, $this->data, array($this, "compareRecords")) as $record) {
+        foreach (array_udiff($this->_snapshot, $this->data, $this->compareRecords(...)) as $record) {
             $record->delete();
         }
 
@@ -892,7 +892,7 @@ class Doctrine_Collection extends Doctrine_Access implements Countable, Iterator
      */
     public function getDeleteDiff()
     {
-        return array_udiff($this->_snapshot, $this->data, array($this, 'compareRecords'));
+        return array_udiff($this->_snapshot, $this->data, $this->compareRecords(...));
     }
 
     /**
@@ -902,7 +902,7 @@ class Doctrine_Collection extends Doctrine_Access implements Countable, Iterator
      */
     public function getInsertDiff()
     {
-        return array_udiff($this->data, $this->_snapshot, array($this, "compareRecords"));
+        return array_udiff($this->data, $this->_snapshot, $this->compareRecords(...));
     }
 
     /**

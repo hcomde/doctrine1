@@ -35,90 +35,90 @@ class Doctrine_Core
     /**
      * VERSION
      */
-    const VERSION                   = '1.2.4';
+    final const VERSION                   = '1.2.4';
 
     /**
      * ERROR CONSTANTS
      */
-    const ERR                       = -1;
-    const ERR_SYNTAX                = -2;
-    const ERR_CONSTRAINT            = -3;
-    const ERR_NOT_FOUND             = -4;
-    const ERR_ALREADY_EXISTS        = -5;
-    const ERR_UNSUPPORTED           = -6;
-    const ERR_MISMATCH              = -7;
-    const ERR_INVALID               = -8;
-    const ERR_NOT_CAPABLE           = -9;
-    const ERR_TRUNCATED             = -10;
-    const ERR_INVALID_NUMBER        = -11;
-    const ERR_INVALID_DATE          = -12;
-    const ERR_DIVZERO               = -13;
-    const ERR_NODBSELECTED          = -14;
-    const ERR_CANNOT_CREATE         = -15;
-    const ERR_CANNOT_DELETE         = -16;
-    const ERR_CANNOT_DROP           = -17;
-    const ERR_NOSUCHTABLE           = -18;
-    const ERR_NOSUCHFIELD           = -19;
-    const ERR_NEED_MORE_DATA        = -20;
-    const ERR_NOT_LOCKED            = -21;
-    const ERR_VALUE_COUNT_ON_ROW    = -22;
-    const ERR_INVALID_DSN           = -23;
-    const ERR_CONNECT_FAILED        = -24;
-    const ERR_EXTENSION_NOT_FOUND   = -25;
-    const ERR_NOSUCHDB              = -26;
-    const ERR_ACCESS_VIOLATION      = -27;
-    const ERR_CANNOT_REPLACE        = -28;
-    const ERR_CONSTRAINT_NOT_NULL   = -29;
-    const ERR_DEADLOCK              = -30;
-    const ERR_CANNOT_ALTER          = -31;
-    const ERR_MANAGER               = -32;
-    const ERR_MANAGER_PARSE         = -33;
-    const ERR_LOADMODULE            = -34;
-    const ERR_INSUFFICIENT_DATA     = -35;
-    const ERR_CLASS_NAME            = -36;
+    final const ERR                       = -1;
+    final const ERR_SYNTAX                = -2;
+    final const ERR_CONSTRAINT            = -3;
+    final const ERR_NOT_FOUND             = -4;
+    final const ERR_ALREADY_EXISTS        = -5;
+    final const ERR_UNSUPPORTED           = -6;
+    final const ERR_MISMATCH              = -7;
+    final const ERR_INVALID               = -8;
+    final const ERR_NOT_CAPABLE           = -9;
+    final const ERR_TRUNCATED             = -10;
+    final const ERR_INVALID_NUMBER        = -11;
+    final const ERR_INVALID_DATE          = -12;
+    final const ERR_DIVZERO               = -13;
+    final const ERR_NODBSELECTED          = -14;
+    final const ERR_CANNOT_CREATE         = -15;
+    final const ERR_CANNOT_DELETE         = -16;
+    final const ERR_CANNOT_DROP           = -17;
+    final const ERR_NOSUCHTABLE           = -18;
+    final const ERR_NOSUCHFIELD           = -19;
+    final const ERR_NEED_MORE_DATA        = -20;
+    final const ERR_NOT_LOCKED            = -21;
+    final const ERR_VALUE_COUNT_ON_ROW    = -22;
+    final const ERR_INVALID_DSN           = -23;
+    final const ERR_CONNECT_FAILED        = -24;
+    final const ERR_EXTENSION_NOT_FOUND   = -25;
+    final const ERR_NOSUCHDB              = -26;
+    final const ERR_ACCESS_VIOLATION      = -27;
+    final const ERR_CANNOT_REPLACE        = -28;
+    final const ERR_CONSTRAINT_NOT_NULL   = -29;
+    final const ERR_DEADLOCK              = -30;
+    final const ERR_CANNOT_ALTER          = -31;
+    final const ERR_MANAGER               = -32;
+    final const ERR_MANAGER_PARSE         = -33;
+    final const ERR_LOADMODULE            = -34;
+    final const ERR_INSUFFICIENT_DATA     = -35;
+    final const ERR_CLASS_NAME            = -36;
 
     /**
      * PDO derived constants
      */
-    const CASE_LOWER = 2;
-    const CASE_NATURAL = 0;
-    const CASE_UPPER = 1;
-    const CURSOR_FWDONLY = 0;
-    const CURSOR_SCROLL = 1;
-    const ERRMODE_EXCEPTION = 2;
-    const ERRMODE_SILENT = 0;
-    const ERRMODE_WARNING = 1;
-    const FETCH_ASSOC = 2;
-    const FETCH_BOTH = 4;
-    const FETCH_BOUND = 6;
-    const FETCH_CLASS = 8;
-    const FETCH_CLASSTYPE = 262144;
-    const FETCH_COLUMN = 7;
-    const FETCH_FUNC = 10;
-    const FETCH_GROUP = 65536;
-    const FETCH_INTO = 9;
-    const FETCH_LAZY = 1;
-    const FETCH_NAMED = 11;
-    const FETCH_NUM = 3;
-    const FETCH_OBJ = 5;
-    const FETCH_ORI_ABS = 4;
-    const FETCH_ORI_FIRST = 2;
-    const FETCH_ORI_LAST = 3;
-    const FETCH_ORI_NEXT = 0;
-    const FETCH_ORI_PRIOR = 1;
-    const FETCH_ORI_REL = 5;
-    const FETCH_SERIALIZE = 524288;
-    const FETCH_UNIQUE = 196608;
-    const NULL_EMPTY_STRING = 1;
-    const NULL_NATURAL = 0;
-    const NULL_TO_STRING         = NULL;
-    const PARAM_BOOL = 5;
-    const PARAM_INPUT_OUTPUT = -2147483648;
-    const PARAM_INT = 1;
-    const PARAM_LOB = 3;
-    const PARAM_NULL = 0;
-    const PARAM_STMT = 4;
-    const PARAM_STR = 2;
+    final const CASE_LOWER = 2;
+    final const CASE_NATURAL = 0;
+    final const CASE_UPPER = 1;
+    final const CURSOR_FWDONLY = 0;
+    final const CURSOR_SCROLL = 1;
+    final const ERRMODE_EXCEPTION = 2;
+    final const ERRMODE_SILENT = 0;
+    final const ERRMODE_WARNING = 1;
+    final const FETCH_ASSOC = 2;
+    final const FETCH_BOTH = 4;
+    final const FETCH_BOUND = 6;
+    final const FETCH_CLASS = 8;
+    final const FETCH_CLASSTYPE = 262144;
+    final const FETCH_COLUMN = 7;
+    final const FETCH_FUNC = 10;
+    final const FETCH_GROUP = 65536;
+    final const FETCH_INTO = 9;
+    final const FETCH_LAZY = 1;
+    final const FETCH_NAMED = 11;
+    final const FETCH_NUM = 3;
+    final const FETCH_OBJ = 5;
+    final const FETCH_ORI_ABS = 4;
+    final const FETCH_ORI_FIRST = 2;
+    final const FETCH_ORI_LAST = 3;
+    final const FETCH_ORI_NEXT = 0;
+    final const FETCH_ORI_PRIOR = 1;
+    final const FETCH_ORI_REL = 5;
+    final const FETCH_SERIALIZE = 524288;
+    final const FETCH_UNIQUE = 196608;
+    final const NULL_EMPTY_STRING = 1;
+    final const NULL_NATURAL = 0;
+    final const NULL_TO_STRING         = NULL;
+    final const PARAM_BOOL = 5;
+    final const PARAM_INPUT_OUTPUT = -2147483648;
+    final const PARAM_INT = 1;
+    final const PARAM_LOB = 3;
+    final const PARAM_NULL = 0;
+    final const PARAM_STMT = 4;
+    final const PARAM_STR = 2;
 
     /**
      * ATTRIBUTE CONSTANTS
@@ -127,93 +127,93 @@ class Doctrine_Core
     /**
      * PDO derived attributes
      */
-    const ATTR_AUTOCOMMIT           = 0;
-    const ATTR_PREFETCH             = 1;
-    const ATTR_TIMEOUT              = 2;
-    const ATTR_ERRMODE              = 3;
-    const ATTR_SERVER_VERSION       = 4;
-    const ATTR_CLIENT_VERSION       = 5;
-    const ATTR_SERVER_INFO          = 6;
-    const ATTR_CONNECTION_STATUS    = 7;
-    const ATTR_CASE                 = 8;
-    const ATTR_CURSOR_NAME          = 9;
-    const ATTR_CURSOR               = 10;
-    const ATTR_ORACLE_NULLS         = 11;
-    const ATTR_PERSISTENT           = 12;
-    const ATTR_STATEMENT_CLASS      = 13;
-    const ATTR_FETCH_TABLE_NAMES    = 14;
-    const ATTR_FETCH_CATALOG_NAMES  = 15;
-    const ATTR_DRIVER_NAME          = 16;
-    const ATTR_STRINGIFY_FETCHES    = 17;
-    const ATTR_MAX_COLUMN_LEN       = 18;
+    final const ATTR_AUTOCOMMIT           = 0;
+    final const ATTR_PREFETCH             = 1;
+    final const ATTR_TIMEOUT              = 2;
+    final const ATTR_ERRMODE              = 3;
+    final const ATTR_SERVER_VERSION       = 4;
+    final const ATTR_CLIENT_VERSION       = 5;
+    final const ATTR_SERVER_INFO          = 6;
+    final const ATTR_CONNECTION_STATUS    = 7;
+    final const ATTR_CASE                 = 8;
+    final const ATTR_CURSOR_NAME          = 9;
+    final const ATTR_CURSOR               = 10;
+    final const ATTR_ORACLE_NULLS         = 11;
+    final const ATTR_PERSISTENT           = 12;
+    final const ATTR_STATEMENT_CLASS      = 13;
+    final const ATTR_FETCH_TABLE_NAMES    = 14;
+    final const ATTR_FETCH_CATALOG_NAMES  = 15;
+    final const ATTR_DRIVER_NAME          = 16;
+    final const ATTR_STRINGIFY_FETCHES    = 17;
+    final const ATTR_MAX_COLUMN_LEN       = 18;
 
     /**
      * Doctrine constants
      */
-    const ATTR_LISTENER             = 100;
-    const ATTR_QUOTE_IDENTIFIER     = 101;
-    const ATTR_FIELD_CASE           = 102;
-    const ATTR_IDXNAME_FORMAT       = 103;
-    const ATTR_SEQNAME_FORMAT       = 104;
-    const ATTR_SEQCOL_NAME          = 105;
-    const ATTR_CMPNAME_FORMAT       = 118;
-    const ATTR_DBNAME_FORMAT        = 117;
-    const ATTR_TBLCLASS_FORMAT      = 119;
-    const ATTR_TBLNAME_FORMAT       = 120;
-    const ATTR_FKNAME_FORMAT        = 171;
-    const ATTR_EXPORT               = 140;
-    const ATTR_DECIMAL_PLACES       = 141;
+    final const ATTR_LISTENER             = 100;
+    final const ATTR_QUOTE_IDENTIFIER     = 101;
+    final const ATTR_FIELD_CASE           = 102;
+    final const ATTR_IDXNAME_FORMAT       = 103;
+    final const ATTR_SEQNAME_FORMAT       = 104;
+    final const ATTR_SEQCOL_NAME          = 105;
+    final const ATTR_CMPNAME_FORMAT       = 118;
+    final const ATTR_DBNAME_FORMAT        = 117;
+    final const ATTR_TBLCLASS_FORMAT      = 119;
+    final const ATTR_TBLNAME_FORMAT       = 120;
+    final const ATTR_FKNAME_FORMAT        = 171;
+    final const ATTR_EXPORT               = 140;
+    final const ATTR_DECIMAL_PLACES       = 141;
 
-    const ATTR_PORTABILITY          = 106;
-    const ATTR_VALIDATE             = 107;
-    const ATTR_COLL_KEY             = 108;
-    const ATTR_QUERY_LIMIT          = 109;
-    const ATTR_DEFAULT_TABLE_TYPE   = 112;
-    const ATTR_DEF_TEXT_LENGTH      = 113;
-    const ATTR_DEF_VARCHAR_LENGTH   = 114;
-    const ATTR_DEF_TABLESPACE       = 115;
-    const ATTR_EMULATE_DATABASE     = 116;
-    const ATTR_USE_NATIVE_ENUM      = 117;
-    const ATTR_DEFAULT_SEQUENCE     = 133;
+    final const ATTR_PORTABILITY          = 106;
+    final const ATTR_VALIDATE             = 107;
+    final const ATTR_COLL_KEY             = 108;
+    final const ATTR_QUERY_LIMIT          = 109;
+    final const ATTR_DEFAULT_TABLE_TYPE   = 112;
+    final const ATTR_DEF_TEXT_LENGTH      = 113;
+    final const ATTR_DEF_VARCHAR_LENGTH   = 114;
+    final const ATTR_DEF_TABLESPACE       = 115;
+    final const ATTR_EMULATE_DATABASE     = 116;
+    final const ATTR_USE_NATIVE_ENUM      = 117;
+    final const ATTR_DEFAULT_SEQUENCE     = 133;
 
-    const ATTR_FETCHMODE                    = 118;
-    const ATTR_NAME_PREFIX                  = 121;
-    const ATTR_CREATE_TABLES                = 122;
-    const ATTR_COLL_LIMIT                   = 123;
+    final const ATTR_FETCHMODE                    = 118;
+    final const ATTR_NAME_PREFIX                  = 121;
+    final const ATTR_CREATE_TABLES                = 122;
+    final const ATTR_COLL_LIMIT                   = 123;
 
-    const ATTR_CACHE                        = 150;
-    const ATTR_RESULT_CACHE                 = 150;
-    const ATTR_CACHE_LIFESPAN               = 151;
-    const ATTR_RESULT_CACHE_LIFESPAN        = 151;
-    const ATTR_LOAD_REFERENCES              = 153;
-    const ATTR_RECORD_LISTENER              = 154;
-    const ATTR_THROW_EXCEPTIONS             = 155;
-    const ATTR_DEFAULT_PARAM_NAMESPACE      = 156;
-    const ATTR_QUERY_CACHE                  = 157;
-    const ATTR_QUERY_CACHE_LIFESPAN         = 158;
-    const ATTR_AUTOLOAD_TABLE_CLASSES       = 160;
-    const ATTR_MODEL_LOADING                = 161;
-    const ATTR_RECURSIVE_MERGE_FIXTURES     = 162;
-    const ATTR_USE_DQL_CALLBACKS            = 164;
-    const ATTR_AUTO_ACCESSOR_OVERRIDE       = 165;
-    const ATTR_AUTO_FREE_QUERY_OBJECTS      = 166;
-    const ATTR_DEFAULT_TABLE_CHARSET        = 167;
-    const ATTR_DEFAULT_TABLE_COLLATE        = 168;
-    const ATTR_DEFAULT_IDENTIFIER_OPTIONS   = 169;
-    const ATTR_DEFAULT_COLUMN_OPTIONS       = 170;
-    const ATTR_HYDRATE_OVERWRITE            = 172;
-    const ATTR_QUERY_CLASS                  = 173;
-    const ATTR_CASCADE_SAVES                = 174;
-    const ATTR_COLLECTION_CLASS             = 175;
-    const ATTR_TABLE_CLASS                  = 176;
-    const ATTR_USE_NATIVE_SET               = 177;
-    const ATTR_MODEL_CLASS_PREFIX           = 178;
-    const ATTR_TABLE_CLASS_FORMAT           = 179;
-    const ATTR_MAX_IDENTIFIER_LENGTH        = 180;
-    const ATTR_USE_TABLE_REPOSITORY         = 181;
-    const ATTR_USE_TABLE_IDENTITY_MAP       = 182;
-    const ATTR_TABLE_CACHE                  = 183;
-    const ATTR_TABLE_CACHE_LIFESPAN         = 184;
+    final const ATTR_CACHE                        = 150;
+    final const ATTR_RESULT_CACHE                 = 150;
+    final const ATTR_CACHE_LIFESPAN               = 151;
+    final const ATTR_RESULT_CACHE_LIFESPAN        = 151;
+    final const ATTR_LOAD_REFERENCES              = 153;
+    final const ATTR_RECORD_LISTENER              = 154;
+    final const ATTR_THROW_EXCEPTIONS             = 155;
+    final const ATTR_DEFAULT_PARAM_NAMESPACE      = 156;
+    final const ATTR_QUERY_CACHE                  = 157;
+    final const ATTR_QUERY_CACHE_LIFESPAN         = 158;
+    final const ATTR_AUTOLOAD_TABLE_CLASSES       = 160;
+    final const ATTR_MODEL_LOADING                = 161;
+    final const ATTR_RECURSIVE_MERGE_FIXTURES     = 162;
+    final const ATTR_USE_DQL_CALLBACKS            = 164;
+    final const ATTR_AUTO_ACCESSOR_OVERRIDE       = 165;
+    final const ATTR_AUTO_FREE_QUERY_OBJECTS      = 166;
+    final const ATTR_DEFAULT_TABLE_CHARSET        = 167;
+    final const ATTR_DEFAULT_TABLE_COLLATE        = 168;
+    final const ATTR_DEFAULT_IDENTIFIER_OPTIONS   = 169;
+    final const ATTR_DEFAULT_COLUMN_OPTIONS       = 170;
+    final const ATTR_HYDRATE_OVERWRITE            = 172;
+    final const ATTR_QUERY_CLASS                  = 173;
+    final const ATTR_CASCADE_SAVES                = 174;
+    final const ATTR_COLLECTION_CLASS             = 175;
+    final const ATTR_TABLE_CLASS                  = 176;
+    final const ATTR_USE_NATIVE_SET               = 177;
+    final const ATTR_MODEL_CLASS_PREFIX           = 178;
+    final const ATTR_TABLE_CLASS_FORMAT           = 179;
+    final const ATTR_MAX_IDENTIFIER_LENGTH        = 180;
+    final const ATTR_USE_TABLE_REPOSITORY         = 181;
+    final const ATTR_USE_TABLE_IDENTITY_MAP       = 182;
+    final const ATTR_TABLE_CACHE                  = 183;
+    final const ATTR_TABLE_CACHE_LIFESPAN         = 184;
 
 
     /**
@@ -223,14 +223,14 @@ class Doctrine_Core
     /**
      * constant for row limiting
      */
-    const LIMIT_ROWS       = 1;
-    const QUERY_LIMIT_ROWS = 1;
+    final const LIMIT_ROWS       = 1;
+    final const QUERY_LIMIT_ROWS = 1;
 
     /**
      * constant for record limiting
      */
-    const LIMIT_RECORDS       = 2;
-    const QUERY_LIMIT_RECORDS = 2;
+    final const LIMIT_RECORDS       = 2;
+    final const QUERY_LIMIT_RECORDS = 2;
 
     /**
      * FETCHMODE CONSTANTS
@@ -245,51 +245,51 @@ class Doctrine_Core
      * Portability: turn off all portability features.
      * @see self::ATTR_PORTABILITY
      */
-    const PORTABILITY_NONE          = 0;
+    final const PORTABILITY_NONE          = 0;
 
     /**
      * Portability: convert names of tables and fields to case defined in the
      * "field_case" option when using the query*(), fetch*() methods.
      * @see self::ATTR_PORTABILITY
      */
-    const PORTABILITY_FIX_CASE      = 1;
+    final const PORTABILITY_FIX_CASE      = 1;
 
     /**
      * Portability: right trim the data output by query*() and fetch*().
      * @see self::ATTR_PORTABILITY
      */
-    const PORTABILITY_RTRIM         = 2;
+    final const PORTABILITY_RTRIM         = 2;
 
     /**
      * Portability: force reporting the number of rows deleted.
      * @see self::ATTR_PORTABILITY
      */
-    const PORTABILITY_DELETE_COUNT  = 4;
+    final const PORTABILITY_DELETE_COUNT  = 4;
 
     /**
      * Portability: convert empty values to null strings in data output by
      * query*() and fetch*().
      * @see self::ATTR_PORTABILITY
      */
-    const PORTABILITY_EMPTY_TO_NULL = 8;
+    final const PORTABILITY_EMPTY_TO_NULL = 8;
 
     /**
      * Portability: removes database/table qualifiers from associative indexes
      * @see self::ATTR_PORTABILITY
      */
-    const PORTABILITY_FIX_ASSOC_FIELD_NAMES = 16;
+    final const PORTABILITY_FIX_ASSOC_FIELD_NAMES = 16;
 
     /**
      * Portability: makes Doctrine_Expression throw exception for unportable RDBMS expressions
      * @see self::ATTR_PORTABILITY
      */
-    const PORTABILITY_EXPR          = 32;
+    final const PORTABILITY_EXPR          = 32;
 
     /**
      * Portability: turn on all portability features.
      * @see self::ATTR_PORTABILITY
      */
-    const PORTABILITY_ALL           = 63;
+    final const PORTABILITY_ALL           = 63;
 
     /**
      * LOCKMODE CONSTANTS
@@ -298,12 +298,12 @@ class Doctrine_Core
     /**
      * mode for optimistic locking
      */
-    const LOCK_OPTIMISTIC       = 0;
+    final const LOCK_OPTIMISTIC       = 0;
 
     /**
      * mode for pessimistic locking
      */
-    const LOCK_PESSIMISTIC      = 1;
+    final const LOCK_PESSIMISTIC      = 1;
 
     /**
      * EXPORT CONSTANTS
@@ -312,27 +312,27 @@ class Doctrine_Core
     /**
      * EXPORT_NONE
      */
-    const EXPORT_NONE               = 0;
+    final const EXPORT_NONE               = 0;
 
     /**
      * EXPORT_TABLES
      */
-    const EXPORT_TABLES             = 1;
+    final const EXPORT_TABLES             = 1;
 
     /**
      * EXPORT_CONSTRAINTS
      */
-    const EXPORT_CONSTRAINTS        = 2;
+    final const EXPORT_CONSTRAINTS        = 2;
 
     /**
      * EXPORT_PLUGINS
      */
-    const EXPORT_PLUGINS            = 4;
+    final const EXPORT_PLUGINS            = 4;
 
     /**
      * EXPORT_ALL
      */
-    const EXPORT_ALL                = 7;
+    final const EXPORT_ALL                = 7;
 
     /**
      * HYDRATION CONSTANTS
@@ -341,105 +341,105 @@ class Doctrine_Core
     /**
      * HYDRATE_RECORD
      */
-    const HYDRATE_RECORD            = 2;
+    final const HYDRATE_RECORD            = 2;
 
     /**
      * HYDRATE_ARRAY
      */
-    const HYDRATE_ARRAY             = 3;
+    final const HYDRATE_ARRAY             = 3;
 
     /**
      * HYDRATE_NONE
      */
-    const HYDRATE_NONE              = 4;
+    final const HYDRATE_NONE              = 4;
 
     /**
      * HYDRATE_SCALAR
      */
-    const HYDRATE_SCALAR            = 5;
+    final const HYDRATE_SCALAR            = 5;
 
     /**
      * HYDRATE_SINGLE_SCALAR
      */
-    const HYDRATE_SINGLE_SCALAR     = 6;
+    final const HYDRATE_SINGLE_SCALAR     = 6;
 
     /**
      * HYDRATE_ON_DEMAND
      */
-    const HYDRATE_ON_DEMAND         = 7;
+    final const HYDRATE_ON_DEMAND         = 7;
 
     /**
      * HYDRATE_ARRAY_HIERARCHY
      */
-    const HYDRATE_ARRAY_HIERARCHY   = 8;
+    final const HYDRATE_ARRAY_HIERARCHY   = 8;
 
     /**
      * HYDRATE_RECORD_HIERARCHY
      */
-    const HYDRATE_RECORD_HIERARCHY  = 9;
+    final const HYDRATE_RECORD_HIERARCHY  = 9;
 
     /**
      * HYDRATE_ARRAY_SHALLOW
      */
-    const HYDRATE_ARRAY_SHALLOW     = 10;
+    final const HYDRATE_ARRAY_SHALLOW     = 10;
 
     /**
      * VALIDATION CONSTANTS
      */
-    const VALIDATE_NONE             = 0;
+    final const VALIDATE_NONE             = 0;
 
     /**
      * VALIDATE_LENGTHS
      */
-    const VALIDATE_LENGTHS          = 1;
+    final const VALIDATE_LENGTHS          = 1;
 
     /**
      * VALIDATE_TYPES
      */
-    const VALIDATE_TYPES            = 2;
+    final const VALIDATE_TYPES            = 2;
 
     /**
      * VALIDATE_CONSTRAINTS
      */
-    const VALIDATE_CONSTRAINTS      = 4;
+    final const VALIDATE_CONSTRAINTS      = 4;
 
     /**
      * VALIDATE_ALL
      */
-    const VALIDATE_ALL              = 7;
+    final const VALIDATE_ALL              = 7;
 
     /**
      * VALIDATE_USER
      */
-    const VALIDATE_USER             = 8;
+    final const VALIDATE_USER             = 8;
 
     /**
      * IDENTIFIER_AUTOINC
      *
      * constant for auto_increment identifier
      */
-    const IDENTIFIER_AUTOINC        = 1;
+    final const IDENTIFIER_AUTOINC        = 1;
 
     /**
      * IDENTIFIER_SEQUENCE
      *
      * constant for sequence identifier
      */
-    const IDENTIFIER_SEQUENCE       = 2;
+    final const IDENTIFIER_SEQUENCE       = 2;
 
     /**
      * IDENTIFIER_NATURAL
      *
      * constant for normal identifier
      */
-    const IDENTIFIER_NATURAL        = 3;
+    final const IDENTIFIER_NATURAL        = 3;
 
     /**
      * IDENTIFIER_COMPOSITE
      *
      * constant for composite identifier
      */
-    const IDENTIFIER_COMPOSITE      = 4;
+    final const IDENTIFIER_COMPOSITE      = 4;
 
     /**
      * MODEL_LOADING_AGGRESSIVE
@@ -447,7 +447,7 @@ class Doctrine_Core
      * Constant for agressive model loading
      * Will require_once() all found model files
      */
-    const MODEL_LOADING_AGGRESSIVE   = 1;
+    final const MODEL_LOADING_AGGRESSIVE   = 1;
 
     /**
      * MODEL_LOADING_CONSERVATIVE
@@ -456,7 +456,7 @@ class Doctrine_Core
      * Will not require_once() found model files inititally instead it will build an array
      * and reference it in autoload() when a class is needed it will require_once() it
      */
-    const MODEL_LOADING_CONSERVATIVE = 2;
+    final const MODEL_LOADING_CONSERVATIVE = 2;
 
     /**
      * MODEL_LOADING_PEAR
@@ -465,7 +465,7 @@ class Doctrine_Core
      * Will simply store the path passed to Doctrine_Core::loadModels()
      * and Doctrine_Core::autoload() will check there
      */
-    const MODEL_LOADING_PEAR = 3;
+    final const MODEL_LOADING_PEAR = 3;
 
     /**
      * Path to Doctrine root
@@ -653,18 +653,18 @@ class Doctrine_Core
                                                         RecursiveIteratorIterator::LEAVES_ONLY);
 
                 foreach ($it as $file) {
-                    $e = explode('.', $file->getFileName());
+                    $e = explode('.', (string) $file->getFileName());
 
-                    if (end($e) === 'php' && strpos($file->getFileName(), '.inc') === false) {
+                    if (end($e) === 'php' && strpos((string) $file->getFileName(), '.inc') === false) {
                         if ($modelLoading == Doctrine_Core::MODEL_LOADING_PEAR) {
-                            $className = str_replace($dir . DIRECTORY_SEPARATOR, null, $file->getPathName());
+                            $className = str_replace($dir . DIRECTORY_SEPARATOR, null, (string) $file->getPathName());
                             $className = str_replace(DIRECTORY_SEPARATOR, '_', $className);
                             $className = substr($className, 0, strpos($className, '.'));
                         } else {
                             $className = $e[0];
                         }
 
-                        if ($classPrefix && $classPrefix != substr($className, 0, strlen($classPrefix))) {
+                        if ($classPrefix && $classPrefix != substr($className, 0, strlen((string) $classPrefix))) {
                             $className = $classPrefix . $className;
                         }
 
@@ -1167,7 +1167,7 @@ class Doctrine_Core
                 return true;
             }
         } else {
-            $class = self::$_modelsDirectory . DIRECTORY_SEPARATOR . str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
+            $class = self::$_modelsDirectory . DIRECTORY_SEPARATOR . str_replace('_', DIRECTORY_SEPARATOR, (string) $className) . '.php';
 
             if (file_exists($class)) {
                 require $class;

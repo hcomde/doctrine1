@@ -41,33 +41,33 @@ abstract class Doctrine_Record extends Doctrine_Record_Abstract implements Count
      * DIRTY STATE
      * a Doctrine_Record is in dirty state when its properties are changed
      */
-    const STATE_DIRTY       = 1;
+    final const STATE_DIRTY       = 1;
 
     /**
      * TDIRTY STATE
      * a Doctrine_Record is in transient dirty state when it is created
      * and some of its fields are modified but it is NOT yet persisted into database
      */
-    const STATE_TDIRTY      = 2;
+    final const STATE_TDIRTY      = 2;
 
     /**
      * CLEAN STATE
      * a Doctrine_Record is in clean state when all of its properties are loaded from the database
      * and none of its properties are changed
      */
-    const STATE_CLEAN       = 3;
+    final const STATE_CLEAN       = 3;
 
     /**
      * PROXY STATE
      * a Doctrine_Record is in proxy state when its properties are not fully loaded
      */
-    const STATE_PROXY       = 4;
+    final const STATE_PROXY       = 4;
 
     /**
      * NEW TCLEAN
      * a Doctrine_Record is in transient clean state when it is created and none of its fields are modified
      */
-    const STATE_TCLEAN      = 5;
+    final const STATE_TCLEAN      = 5;
 
     /**
      * LOCKED STATE
@@ -76,7 +76,7 @@ abstract class Doctrine_Record extends Doctrine_Record_Abstract implements Count
      * This state is used internally to ensure that circular deletes
      * and saves will not cause infinite loops
      */
-    const STATE_LOCKED     = 6;
+    final const STATE_LOCKED     = 6;
 
  	/**
  	 * TLOCKED STATE
@@ -85,7 +85,7 @@ abstract class Doctrine_Record extends Doctrine_Record_Abstract implements Count
  	 * This state is used internally to ensure that circular deletes
  	 * and saves will not cause infinite loops
  	 */
- 	const STATE_TLOCKED     = 7;
+ 	final const STATE_TLOCKED     = 7;
 
 
     /**
@@ -856,7 +856,7 @@ abstract class Doctrine_Record extends Doctrine_Record_Abstract implements Count
                         $vars['_data'][$k] = serialize($vars['_data'][$k]);
                         break;
                     case 'gzip':
-                        $vars['_data'][$k] = gzcompress($vars['_data'][$k]);
+                        $vars['_data'][$k] = gzcompress((string) $vars['_data'][$k]);
                         break;
                     case 'enum':
                         $vars['_data'][$k] = $this->_table->enumIndex($k, $vars['_data'][$k]);
@@ -1848,7 +1848,7 @@ abstract class Doctrine_Record extends Doctrine_Record_Abstract implements Count
                     $a[$field] = serialize($this->_data[$field]);
                     break;
                 case 'gzip':
-                    $a[$field] = gzcompress($this->_data[$field],5);
+                    $a[$field] = gzcompress((string) $this->_data[$field],5);
                     break;
                 case 'boolean':
                     $a[$field] = $this->getTable()->getConnection()->convertBooleans($this->_data[$field]);

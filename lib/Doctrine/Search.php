@@ -32,9 +32,9 @@
  */
 class Doctrine_Search extends Doctrine_Record_Generator
 {
-    const INDEX_FILES = 0;
+    final const INDEX_FILES = 0;
 
-    const INDEX_TABLES = 1;
+    final const INDEX_TABLES = 1;
 
     protected $_options = array('generateFiles'    => false,
                                 'analyzer'         => 'Doctrine_Search_Analyzer_Standard',

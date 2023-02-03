@@ -20,7 +20,7 @@ require_once dirname(__FILE__).'/sfYaml.php';
  */
 class sfYamlInline
 {
-  const REGEX_QUOTED_STRING = '(?:"([^"\\\\]*(?:\\\\.[^"\\\\]*)*)"|\'([^\']*(?:\'\'[^\']*)*)\')';
+  final const REGEX_QUOTED_STRING = '(?:"([^"\\\\]*(?:\\\\.[^"\\\\]*)*)"|\'([^\']*(?:\'\'[^\']*)*)\')';
 
   /**
    * Convert a YAML string to a PHP array.
@@ -102,19 +102,19 @@ class sfYamlInline
         return "'$value'";
       case is_numeric($value) && false === strpbrk($value, "\f\n\r\t\v"):
         return is_infinite($value) ? str_ireplace('INF', '.Inf', strval($value)) : (is_string($value) ? "'$value'" : $value);
-      case false !== strpos($value, "\n") || false !== strpos($value, "\r"):
-        return sprintf('"%s"', str_replace(array('"', "\n", "\r"), array('\\"', '\n', '\r'), $value));
-      case preg_match('/[ \s \' " \: \{ \} \[ \] , & \* \# \?] | \A[ - ? | < > = ! % @ ` ]/x', $value):
-        return sprintf("'%s'", str_replace('\'', '\'\'', $value));
+      case false !== strpos((string) $value, "\n") || false !== strpos((string) $value, "\r"):
+        return sprintf('"%s"', str_replace(array('"', "\n", "\r"), array('\\"', '\n', '\r'), (string) $value));
+      case preg_match('/[ \s \' " \: \{ \} \[ \] , & \* \# \?] | \A[ - ? | < > = ! % @ ` ]/x', (string) $value):
+        return sprintf("'%s'", str_replace('\'', '\'\'', (string) $value));
       case '' == $value:
         return "''";
-      case preg_match(self::getTimestampRegex(), $value):
+      case preg_match(self::getTimestampRegex(), (string) $value):
         return "'$value'";
-      case in_array(strtolower($value), $trueValues):
+      case in_array(strtolower((string) $value), $trueValues):
         return "'$value'";
-      case in_array(strtolower($value), $falseValues):
+      case in_array(strtolower((string) $value), $falseValues):
         return "'$value'";
-      case in_array(strtolower($value), array('null', '~')):
+      case in_array(strtolower((string) $value), array('null', '~')):
         return "'$value'";
       default:
         return $value;

@@ -244,7 +244,7 @@ class Doctrine_Export extends Doctrine_Connection_Module
 
 
         if (isset($options['primary']) && ! empty($options['primary'])) {
-            $primaryKeys = array_map(array($this->conn, 'quoteIdentifier'), array_values($options['primary']));
+            $primaryKeys = array_map($this->conn->quoteIdentifier(...), array_values($options['primary']));
             $queryFields .= ', PRIMARY KEY(' . implode(', ', $primaryKeys) . ')';
         }
 
@@ -474,9 +474,9 @@ class Doctrine_Export extends Doctrine_Connection_Module
         $type   = '';
         
         if (isset($definition['type'])) {
-            switch (strtolower($definition['type'])) {
+            switch (strtolower((string) $definition['type'])) {
                 case 'unique':
-                    $type = strtoupper($definition['type']) . ' ';
+                    $type = strtoupper((string) $definition['type']) . ' ';
                 break;
                 default:
                     throw new Doctrine_Export_Exception(
@@ -840,8 +840,8 @@ class Doctrine_Export extends Doctrine_Connection_Module
         $type   = '';
 
         if (isset($definition['type'])) {
-            if (strtolower($definition['type']) == 'unique') {
-                $type = strtoupper($definition['type']) . ' ';
+            if (strtolower((string) $definition['type']) == 'unique') {
+                $type = strtoupper((string) $definition['type']) . ' ';
             } else {
                 throw new Doctrine_Export_Exception(
                     'Unknown type ' . $definition['type'] . ' for index ' . $name
@@ -1028,10 +1028,10 @@ class Doctrine_Export extends Doctrine_Connection_Module
             $definition['foreign'] = array($definition['foreign']);
         }
 
-        $sql .= implode(', ', array_map(array($this->conn, 'quoteIdentifier'), $definition['local']))
+        $sql .= implode(', ', array_map($this->conn->quoteIdentifier(...), $definition['local']))
               . ') REFERENCES '
               . $this->conn->quoteIdentifier($definition['foreignTable']) . '('
-              . implode(', ', array_map(array($this->conn, 'quoteIdentifier'), $definition['foreign'])) . ')';
+              . implode(', ', array_map($this->conn->quoteIdentifier(...), $definition['foreign'])) . ')';
 
         return $sql;
     }
@@ -1123,7 +1123,7 @@ class Doctrine_Export extends Doctrine_Connection_Module
              // We need these to happen first
              foreach ($sql as $key => $query) {
                  // If create table statement
-                 if (substr($query, 0, strlen('CREATE TABLE')) == 'CREATE TABLE') {
+                 if (substr((string) $query, 0, strlen('CREATE TABLE')) == 'CREATE TABLE') {
                      $connections[$connectionName]['create_tables'][] = $query;
 
                      unset($sql[$key]);
@@ -1131,7 +1131,7 @@ class Doctrine_Export extends Doctrine_Connection_Module
                  }
 
                  // If create sequence statement
-                 if (substr($query, 0, strlen('CREATE SEQUENCE')) == 'CREATE SEQUENCE') {
+                 if (substr((string) $query, 0, strlen('CREATE SEQUENCE')) == 'CREATE SEQUENCE') {
                      $connections[$connectionName]['create_sequences'][] = $query;
 
                      unset($sql[$key]);
@@ -1147,8 +1147,8 @@ class Doctrine_Export extends Doctrine_Connection_Module
                  }
 
                  // If alter table statement or oracle anonymous block enclosing alter
-                 if (substr($query, 0, strlen('ALTER TABLE')) == 'ALTER TABLE'
-                       || substr($query, 0, strlen('DECLARE')) == 'DECLARE') {
+                 if (substr((string) $query, 0, strlen('ALTER TABLE')) == 'ALTER TABLE'
+                       || substr((string) $query, 0, strlen('DECLARE')) == 'DECLARE') {
                      $connections[$connectionName]['alters'][] = $query;
 
                      unset($sql[$key]);
@@ -1156,7 +1156,7 @@ class Doctrine_Export extends Doctrine_Connection_Module
                  }
 
                  // If create trgger statement
-                 if (substr($query, 0, strlen('CREATE TRIGGER')) == 'CREATE TRIGGER') {
+                 if (substr((string) $query, 0, strlen('CREATE TRIGGER')) == 'CREATE TRIGGER') {
                      $connections[$connectionName]['create_triggers'][] = $query;
 
                  	 unset($sql[$key]);
@@ -1164,7 +1164,7 @@ class Doctrine_Export extends Doctrine_Connection_Module
                  }
 
                  // If comment statement
-                 if (substr($query, 0, strlen('COMMENT ON')) == 'COMMENT ON') {
+                 if (substr((string) $query, 0, strlen('COMMENT ON')) == 'COMMENT ON') {
                      $connections[$connectionName]['comments'][] = $query;
 
                      unset($sql[$key]);

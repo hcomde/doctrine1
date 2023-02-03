@@ -107,9 +107,9 @@ class Doctrine_Export_Sqlite extends Doctrine_Export
         $type  = '';
 
         if (isset($definition['type'])) {
-            switch (strtolower($definition['type'])) {
+            switch (strtolower((string) $definition['type'])) {
                 case 'unique':
-                    $type = strtoupper($definition['type']) . ' ';
+                    $type = strtoupper((string) $definition['type']) . ' ';
                 break;
                 default:
                     throw new Doctrine_Export_Exception(
@@ -140,7 +140,7 @@ class Doctrine_Export_Sqlite extends Doctrine_Export
 
             if (is_array($field)) {
                 if (isset($field['sorting'])) {
-                    $sort = strtoupper($field['sorting']);
+                    $sort = strtoupper((string) $field['sorting']);
                     switch ($sort) {
                         case 'ASC':
                         case 'DESC':
@@ -208,7 +208,7 @@ class Doctrine_Export_Sqlite extends Doctrine_Export
 
         if ( ! $autoinc && isset($options['primary']) && ! empty($options['primary'])) {
             $keyColumns = array_values($options['primary']);
-            $keyColumns = array_map(array($this->conn, 'quoteIdentifier'), $keyColumns);
+            $keyColumns = array_map($this->conn->quoteIdentifier(...), $keyColumns);
             $queryFields.= ', PRIMARY KEY('.implode(', ', $keyColumns).')';
         }
 

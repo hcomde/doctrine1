@@ -1286,7 +1286,7 @@ abstract class Doctrine_Query_Abstract
         $queryComponents = array();
         $cachedComponents = $cached[1];
         foreach ($cachedComponents as $alias => $components) {
-            $e = explode('.', $components['name']);
+            $e = explode('.', (string) $components['name']);
             if (count($e) === 1) {
                 $manager = Doctrine_Manager::getInstance();
                 if ( ! $this->_passedConn && $manager->hasConnectionForComponent($e[0])) {
@@ -2432,7 +2432,7 @@ abstract class Doctrine_Query_Abstract
             self::INDEX_USE, self::INDEX_FORCE, self::INDEX_IGNORE
         ];
 
-        if (is_null($type) || !in_array(strtoupper(trim($type)), $allowed_index_types)) {
+        if (is_null($type) || !in_array(strtoupper(trim((string) $type)), $allowed_index_types)) {
             $type = self::INDEX_USE;
         }
 
@@ -2492,7 +2492,7 @@ abstract class Doctrine_Query_Abstract
             // Match the first join occurrence and then store the position that string
             // is offset in the query so we can append a USE INDEX constraint before it.
             $reg_expression = "/((\bfrom\b)|((\b(inner|outer|left|right)\b)? (join))) (`[A-Za-z_0-9]+`) `$alias`/i";
-            preg_match($reg_expression, $sql, $matches, PREG_OFFSET_CAPTURE);
+            preg_match($reg_expression, (string) $sql, $matches, PREG_OFFSET_CAPTURE);
 
             if (!empty($matches)) {
                 foreach ($index_part as $type => $indexes) {
@@ -2502,7 +2502,7 @@ abstract class Doctrine_Query_Abstract
                     $index_type = $type . (stripos($matches[0][0], 'join') ? ' FOR JOIN ' : '');
                     $index_name = implode(', ', $indexes);
 
-                    $sql = substr_replace($sql, " {$index_type} ({$index_name})", $position, 0);
+                    $sql = substr_replace((string) $sql, " {$index_type} ({$index_name})", $position, 0);
                 }
             }
         }
@@ -2551,7 +2551,7 @@ abstract class Doctrine_Query_Abstract
     protected function _getParser($name)
     {
         if ( ! isset($this->_parsers[$name])) {
-            $class = 'Doctrine_Query_' . ucwords(strtolower($name));
+            $class = 'Doctrine_Query_' . ucwords(strtolower((string) $name));
 
             Doctrine_Core::autoload($class);
 

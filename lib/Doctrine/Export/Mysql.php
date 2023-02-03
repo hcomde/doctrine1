@@ -163,10 +163,10 @@ class Doctrine_Export_Mysql extends Doctrine_Export
             // Case Insensitive checking for duplicate indexes...
             $dupes = array();
             foreach ($options['indexes'] as $key => $index) {
-                if (in_array(strtolower($key), $dupes)) {
+                if (in_array(strtolower((string) $key), $dupes)) {
                     unset($options['indexes'][$key]);
                 } else {
-                    $dupes[] = strtolower($key);
+                    $dupes[] = strtolower((string) $key);
                 }
             }
             unset($dupes);
@@ -179,7 +179,7 @@ class Doctrine_Export_Mysql extends Doctrine_Export
         // attach all primary keys
         if (isset($options['primary']) && ! empty($options['primary'])) {
             $keyColumns = array_values($options['primary']);
-            $keyColumns = array_map(array($this->conn, 'quoteIdentifier'), $keyColumns);
+            $keyColumns = array_map($this->conn->quoteIdentifier(...), $keyColumns);
             $queryFields .= ', PRIMARY KEY(' . implode(', ', $keyColumns) . ')';
         }
 
@@ -595,10 +595,10 @@ class Doctrine_Export_Mysql extends Doctrine_Export
         $name   = $this->conn->quoteIdentifier($name);
         $type   = '';
         if (isset($definition['type'])) {
-            switch (strtolower($definition['type'])) {
+            switch (strtolower((string) $definition['type'])) {
                 case 'fulltext':
                 case 'unique':
-                    $type = strtoupper($definition['type']) . ' ';
+                    $type = strtoupper((string) $definition['type']) . ' ';
                 break;
                 default:
                     throw new Doctrine_Export_Exception(
@@ -634,14 +634,14 @@ class Doctrine_Export_Mysql extends Doctrine_Export
                     $field['default'] = ' ';
                 }
             }
-    
+
             // Proposed patch:
             if ($field['type'] == 'enum' && $this->conn->getAttribute(Doctrine_Core::ATTR_USE_NATIVE_ENUM)) {
                 $fieldType = 'varchar';
             } else {
                 $fieldType = $field['type'];
             }
-            
+
             $default = ' DEFAULT ' . (is_null($field['default'])
                 ? 'NULL' 
                 : $this->conn->quote($field['default'], $fieldType));
@@ -664,10 +664,10 @@ class Doctrine_Export_Mysql extends Doctrine_Export
         $name   = $this->conn->formatter->getIndexName($name);
         $type   = '';
         if (isset($definition['type'])) {
-            switch (strtolower($definition['type'])) {
+            switch (strtolower((string) $definition['type'])) {
                 case 'fulltext':
                 case 'unique':
-                    $type = strtoupper($definition['type']) . ' ';
+                    $type = strtoupper((string) $definition['type']) . ' ';
                 break;
                 default:
                     throw new Doctrine_Export_Exception(
@@ -710,7 +710,7 @@ class Doctrine_Export_Mysql extends Doctrine_Export
                 }
 
                 if (isset($field['sorting'])) {
-                    $sort = strtoupper($field['sorting']);
+                    $sort = strtoupper((string) $field['sorting']);
                     switch ($sort) {
                         case 'ASC':
                         case 'DESC':

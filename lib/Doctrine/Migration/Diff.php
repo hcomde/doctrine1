@@ -418,7 +418,7 @@ class Doctrine_Migration_Diff
         }
 
         // clean up tmp directories
-        Doctrine_Lib::removeDirectories($this->_tmpPath . DIRECTORY_SEPARATOR . strtolower(self::$_fromPrefix) . '_doctrine_tmp_dirs');
-        Doctrine_Lib::removeDirectories($this->_tmpPath . DIRECTORY_SEPARATOR . strtolower(self::$_toPrefix) . '_doctrine_tmp_dirs');
+        Doctrine_Lib::removeDirectories($this->_tmpPath . DIRECTORY_SEPARATOR . strtolower((string) self::$_fromPrefix) . '_doctrine_tmp_dirs');
+        Doctrine_Lib::removeDirectories($this->_tmpPath . DIRECTORY_SEPARATOR . strtolower((string) self::$_toPrefix) . '_doctrine_tmp_dirs');
     }
 }

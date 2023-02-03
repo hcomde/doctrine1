@@ -129,7 +129,7 @@ class Doctrine_DataDict_Sqlite extends Doctrine_DataDict
      */
     public function getPortableDeclaration(array $field)
     {
-        $e = explode('(', $field['type']);
+        $e = explode('(', (string) $field['type']);
         $field['type'] = $e[0];
         if (isset($e[1])) {
             $length = trim($e[1], ')');
@@ -158,7 +158,7 @@ class Doctrine_DataDict_Sqlite extends Doctrine_DataDict
             case 'tinyint':
                 $type[] = 'integer';
                 $type[] = 'boolean';
-                if (preg_match('/^(is|has)/', $field['name'])) {
+                if (preg_match('/^(is|has)/', (string) $field['name'])) {
                     $type = array_reverse($type);
                 }
                 $unsigned = preg_match('/ unsigned/i', $field['type']);
@@ -203,7 +203,7 @@ class Doctrine_DataDict_Sqlite extends Doctrine_DataDict
                 $type[] = 'text';
                 if ($length == '1') {
                     $type[] = 'boolean';
-                    if (preg_match('/^(is|has)/', $field['name'])) {
+                    if (preg_match('/^(is|has)/', (string) $field['name'])) {
                         $type = array_reverse($type);
                     }
                 } elseif (strstr($dbType, 'text')) {

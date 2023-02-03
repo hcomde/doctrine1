@@ -74,7 +74,7 @@ class Doctrine_Inflector
      */
     public static function classifyCallback($matches)
     {
-        return $matches[1] . strtoupper($matches[3]);
+        return $matches[1] . strtoupper((string) $matches[3]);
     }
 
     /**

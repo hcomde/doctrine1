@@ -119,7 +119,7 @@ abstract class Doctrine_Task
     {
         $args = func_get_args();
         
-        call_user_func_array(array($this, 'notify'), $args);
+        call_user_func_array($this->notify(...), $args);
         
         $answer = strtolower(trim(fgets(STDIN)));
         

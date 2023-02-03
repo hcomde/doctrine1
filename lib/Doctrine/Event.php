@@ -35,39 +35,39 @@ class Doctrine_Event
     /**
      * CONNECTION EVENT CODES
      */
-    const CONN_QUERY         = 1;
-    const CONN_EXEC          = 2;
-    const CONN_PREPARE       = 3;
-    const CONN_CONNECT       = 4;
-    const CONN_CLOSE         = 5;
-    const CONN_ERROR         = 6;
+    final const CONN_QUERY         = 1;
+    final const CONN_EXEC          = 2;
+    final const CONN_PREPARE       = 3;
+    final const CONN_CONNECT       = 4;
+    final const CONN_CLOSE         = 5;
+    final const CONN_ERROR         = 6;
 
-    const STMT_EXECUTE       = 10;
-    const STMT_FETCH         = 11;
-    const STMT_FETCHALL      = 12;
+    final const STMT_EXECUTE       = 10;
+    final const STMT_FETCH         = 11;
+    final const STMT_FETCHALL      = 12;
 
-    const TX_BEGIN           = 31;
-    const TX_COMMIT          = 32;
-    const TX_ROLLBACK        = 33;
-    const SAVEPOINT_CREATE   = 34;
-    const SAVEPOINT_ROLLBACK = 35;
-    const SAVEPOINT_COMMIT   = 36;
+    final const TX_BEGIN           = 31;
+    final const TX_COMMIT          = 32;
+    final const TX_ROLLBACK        = 33;
+    final const SAVEPOINT_CREATE   = 34;
+    final const SAVEPOINT_ROLLBACK = 35;
+    final const SAVEPOINT_COMMIT   = 36;
 
-    const HYDRATE            = 40;
+    final const HYDRATE            = 40;
 
     /*
      * RECORD EVENT CODES
      */
-    const RECORD_DELETE      = 21;
-    const RECORD_SAVE        = 22;
-    const RECORD_UPDATE      = 23;
-    const RECORD_INSERT      = 24;
-    const RECORD_SERIALIZE   = 25;
-    const RECORD_UNSERIALIZE = 26;
-    const RECORD_DQL_DELETE  = 27;
-    const RECORD_DQL_SELECT  = 28;
-    const RECORD_DQL_UPDATE  = 29;
-    const RECORD_VALIDATE    = 30;
+    final const RECORD_DELETE      = 21;
+    final const RECORD_SAVE        = 22;
+    final const RECORD_UPDATE      = 23;
+    final const RECORD_INSERT      = 24;
+    final const RECORD_SERIALIZE   = 25;
+    final const RECORD_UNSERIALIZE = 26;
+    final const RECORD_DQL_DELETE  = 27;
+    final const RECORD_DQL_SELECT  = 28;
+    final const RECORD_DQL_UPDATE  = 29;
+    final const RECORD_VALIDATE    = 30;
 
     /**
      * @var mixed $_nextSequence        the sequence of the next event that will be created

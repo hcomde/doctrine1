@@ -142,10 +142,10 @@ class Doctrine_Migration
             }
 
             foreach ($it as $file) {
-                $info = pathinfo($file->getFileName());
+                $info = pathinfo((string) $file->getFileName());
                 if (isset($info['extension']) && $info['extension'] == 'php') {
                     $fullPath = $file->getPathname();
-                    $className = str_replace([$rootDir, '/', '.php'], ['', '\\', ''], $fullPath);
+                    $className = str_replace([$rootDir, '/', '.php'], ['', '\\', ''], (string) $fullPath);
                     $classesToLoad[$className] = ['className' => $className, 'path' => $fullPath];
                 }
             }
@@ -191,7 +191,7 @@ class Doctrine_Migration
         $this->_migrationClasses[$classMigrationNum] = $name;
 
         if ($path) {
-            $dir = dirname($path);
+            $dir = dirname((string) $path);
             self::$_migrationClassesForDirectories[$dir][$classMigrationNum] = $name;
         }
     }
