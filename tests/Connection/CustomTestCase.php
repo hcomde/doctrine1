@@ -30,7 +30,7 @@
  * @since       1.0
  * @version     $Revision$
  */
-class Doctrine_Connection_Custom_TestCase extends Doctrine_UnitTestCase 
+class Doctrine_Connection_Custom_TestCase extends Doctrine_UnitTestCase
 {
     protected $_conn;
     protected $_dbh;
@@ -85,6 +85,10 @@ class Doctrine_Adapter_Test implements Doctrine_Adapter_Interface
     }
 
     public function beginTransaction()
+    {
+    }
+
+    public function inTransaction()
     {
     }
 
