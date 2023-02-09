@@ -153,9 +153,9 @@ class Doctrine_Table_TestCase extends Doctrine_UnitTestCase
 
     public function testSetSequenceName()
     {
-        $this->objTable->sequenceName = 'test-seq';
+        $this->objTable->setOption('sequenceName', 'test-seq');
         $this->assertEqual($this->objTable->sequenceName, 'test-seq');
-        $this->objTable->sequenceName = null;
+        $this->objTable->setOption('sequenceName', null);
     }
 
     public function testCreate()

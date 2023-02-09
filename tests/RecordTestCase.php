@@ -41,6 +41,7 @@ class Doctrine_Record_TestCase extends Doctrine_UnitTestCase
         $this->tables[] = 'Book';
         $this->tables[] = 'EntityAddress';
         $this->tables[] = 'UnderscoreColumn';
+        $this->tables[] = 'Location2';
         parent::prepareTables();
     }
 
@@ -1021,5 +1022,16 @@ class Doctrine_Record_TestCase extends Doctrine_UnitTestCase
         } catch (Exception $e) {
           $this->fail();
         }
+    }
+    
+    public function testDoubleIsModified()
+    {
+        $location = new Location2();
+        $location->lat = '12.345';
+        
+        $location->save();
+        $location->lat = 12.345;
+        
+        $this->assertFalse($location->isModified());
     }
 }

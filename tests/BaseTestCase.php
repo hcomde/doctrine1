@@ -30,7 +30,7 @@
  * @since       1.0
  * @version     $Revision$
  */
-class Doctrine_Base_TestCase extends Doctrine_UnitTestCase 
+class Doctrine_Base_TestCase extends Doctrine_UnitTestCase
 {
     public function testAggressiveModelLoading()
     {
@@ -94,36 +94,20 @@ class Doctrine_Base_TestCase extends Doctrine_UnitTestCase
 
     public function testGetConnectionByTableNameForTableWithOneModel()
     {
-        $conn = null;
-        $thrownException = null;
+        $connectionBefore = Doctrine_Core::getConnectionByTableName('account');
 
-        try {
-            $connectionBefore = Doctrine_Core::getConnectionByTableName('account');
+        $this->openAdditionalConnection('sqlite::memory:', 'test_memory');
 
-            $conn = Doctrine_Manager::connection('sqlite::memory:', 'test_memory');
-            Doctrine_Manager::getInstance()->bindComponent('Account', 'test_memory');
+        Doctrine_Manager::getInstance()->bindComponent('Account', 'test_memory');
 
-            $connectionAfter = Doctrine_Core::getConnectionByTableName('account');
+        $connectionAfter = Doctrine_Core::getConnectionByTableName('account');
 
-            $this->assertEqual($connectionAfter->getName(), 'test_memory');
+        $this->assertEqual($connectionAfter->getName(), 'test_memory');
 
-            Doctrine_Manager::getInstance()->bindComponent('Account', $connectionBefore->getName());
+        Doctrine_Manager::getInstance()->bindComponent('Account', $connectionBefore->getName());
 
-            $connectionAfter = Doctrine_Core::getConnectionByTableName('account');
+        $connectionAfter = Doctrine_Core::getConnectionByTableName('account');
 
-            $this->assertEqual($connectionBefore->getName(), $connectionAfter->getName());
-        } catch (Throwable $e) {
-            $thrownException = $e;
-        } catch (Exception $e) {
-            $thrownException = $e;
-        }
-
-        if (null !== $conn) {
-            Doctrine_Manager::getInstance()->closeConnection($conn);
-        }
-
-        if (null !== $thrownException) {
-            throw $thrownException;
-        }
+        $this->assertEqual($connectionBefore->getName(), $connectionAfter->getName());
     }
 }

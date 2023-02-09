@@ -32,6 +32,8 @@
  */
 class Doctrine_Ticket_1131_TestCase extends Doctrine_UnitTestCase
 {
+    private $role_one, $role_two;
+
     public function prepareTables()
     {
         //$this->tables = array();

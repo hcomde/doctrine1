@@ -6,6 +6,8 @@ class GroupTest extends UnitTestCase
     protected $_title;
     protected $_onlyRunFailed = false;
 
+    protected $_formatter;
+
     public function __construct($title, $name)
     {
         $this->_title = $title;

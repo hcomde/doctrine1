@@ -321,6 +321,11 @@ class Doctrine_Connection_Statement implements Doctrine_Adapter_Statement_Interf
     {
         $event = new Doctrine_Event($this, Doctrine_Event::STMT_FETCH, $this->getQuery());
 
+        // null value is not an integer
+        if(null === $cursorOffset) {
+            $cursorOffset = 0;
+        }
+
         $event->fetchMode = $fetchMode;
         $event->cursorOrientation = $cursorOrientation;
         $event->cursorOffset = $cursorOffset;

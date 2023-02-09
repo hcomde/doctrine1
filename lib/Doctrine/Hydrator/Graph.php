@@ -35,7 +35,9 @@
  */
 abstract class Doctrine_Hydrator_Graph extends Doctrine_Hydrator_Abstract
 {
-    protected $_tables = array();
+    protected
+        $_tables = array(),
+        $_rootAlias = null;
 
     /**
      * Gets the custom field used for indexing for the specified component alias.
@@ -121,7 +123,9 @@ abstract class Doctrine_Hydrator_Graph extends Doctrine_Hydrator_Abstract
             $table = $this->_queryComponents[$rootAlias]['table'];
 
             if ($table->getConnection()->getAttribute(Doctrine_Core::ATTR_PORTABILITY) & Doctrine_Core::PORTABILITY_RTRIM) {
-                array_map('rtrim', $data);
+                foreach($data as $key => $foo) {
+                    $data[$key] = (is_string($foo)) ? rtrim($foo) : $foo;
+                }
             }
 
             $id = $idTemplate; // initialize the id-memory

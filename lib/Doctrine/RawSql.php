@@ -59,7 +59,7 @@ class Doctrine_RawSql extends Doctrine_Query_Abstract
 
     protected function clear()
     {
-        $this->_preQuery = false;
+        $this->_preQueried = false;
         $this->_pendingJoinConditions = array();
     }
 

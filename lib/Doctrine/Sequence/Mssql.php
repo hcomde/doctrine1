@@ -32,6 +32,8 @@
  */
 class Doctrine_Sequence_Mssql extends Doctrine_Sequence
 {
+    protected $warnings;
+
     /**
      * Returns the next free id of a sequence
      *

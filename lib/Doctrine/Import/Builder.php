@@ -36,6 +36,7 @@
  * @author      Nicolas Bérard-Nault <nicobn@php.net>
  * @author      Jonathan H. Wage <jwage@mac.com>
  */
+#[\AllowDynamicProperties]
 class Doctrine_Import_Builder extends Doctrine_Builder
 {
     /**

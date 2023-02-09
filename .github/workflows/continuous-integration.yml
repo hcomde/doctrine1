@@ -1,0 +1,39 @@
+name: "Continuous Integration"
+
+on:
+    push:
+      branches:
+        - master
+    pull_request:
+
+env:
+    fail-fast: true
+
+jobs:
+    tests:
+        name: "Doctrine1 Tests"
+        runs-on: "ubuntu-22.04"
+
+        strategy:
+            matrix:
+                php-version:
+                    - "7.4"
+                    - "8.0"
+                    - "8.1"
+                    - "8.2"
+
+        steps:
+            - name: "Checkout"
+              uses: "actions/checkout@v3"
+
+            - name: "Install PHP"
+              uses: "shivammathur/setup-php@2.23.0"
+              with:
+                  php-version: "${{ matrix.php-version }}"
+                  # extensions: "${{ matrix.extension }}"
+
+            - name: "Install dependencies with Composer"
+              uses: "ramsey/composer-install@2.2.0"
+
+            - name: "Run Tests"
+              run: "cd tests && php run.php"

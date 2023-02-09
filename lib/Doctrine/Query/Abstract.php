@@ -280,6 +280,11 @@ abstract class Doctrine_Query_Abstract
     protected $_preQueried = false;
 
     /**
+     * @var array $_pendingJoinConditions    an array containing pending joins
+     */
+    protected $_pendingJoinConditions = array();
+
+    /**
      * Fix for http://www.doctrine-project.org/jira/browse/DC-701
      *
      * @var bool Boolean variable for whether the limitSubquery method of accessing tables via a many relationship should be used.

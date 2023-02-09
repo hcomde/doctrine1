@@ -53,9 +53,39 @@ class Doctrine_UnitTestCase extends UnitTestCase
     protected $dataDict;
     protected $transaction;
     protected $_name;
-
+    protected $query;
+    protected $profiler;
+    protected $import;
+    protected $sequence;
+    protected $exc;
 
     protected $init = false;
+
+    /**
+     * @var Doctrine_Connection[]
+     */
+    private $additionalConnections = array();
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        if ( ! $this->init) {
+            $this->init();
+        }
+        if (isset($this->objTable)) {
+            $this->objTable->clear();
+        }
+
+        $this->init = true;
+    }
+
+    public function tearDown()
+    {
+        $this->closeAdditionalConnections();
+
+        parent::tearDown();
+    }
 
     public function getName()
     {
@@ -275,18 +305,20 @@ class Doctrine_UnitTestCase extends UnitTestCase
     {
         return $this->dataDict->getPortableDeclaration(array('type' => $type, 'name' => 'colname', 'length' => 1, 'fixed' => true));
     }
-    public function setUp()
-    {
-        if ( ! $this->init) {
-            $this->init();
-        }
-        if (isset($this->objTable)) {
-            $this->objTable->clear();
-        }
 
-        $this->init = true;
+    protected function openAdditionalConnection($adapter = null, $name = null)
+    {
+        $connection = $this->manager->openConnection($adapter, $name);
+
+        $this->additionalConnections[] = $connection;
+
+        return $connection;
     }
 
-    public function tearDown() {
+    private function closeAdditionalConnections()
+    {
+        foreach ($this->additionalConnections as $connection) {
+            $this->manager->closeConnection($connection);
+        }
     }
 }
