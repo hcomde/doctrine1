@@ -34,6 +34,11 @@
             "Doctrine_": "lib/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "migration_classes\\": "tests/migration_classes/"
+        }
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.4-dev"
