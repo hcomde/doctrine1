@@ -19,6 +19,11 @@
  * <http://www.doctrine-project.org>.
  */
 
+use migration_classes\release_1\Migration_001;
+use migration_classes\release_1\Migration_002;
+use migration_classes\release_1\Migration_003;
+use migration_classes\release_1\Migration_004;
+
 /**
  * Doctrine_Migration_TestCase
  *
@@ -65,25 +70,25 @@ class Doctrine_Migration_TestCase extends Doctrine_UnitTestCase
 
         $migration->migrate(0);
         $this->assertEqual($migration->getCurrentVersion(), 0);
-        $this->assertTrue($migration->getMigrationClass(1) instanceof AddPhonenumber);
-        $this->assertTrue($migration->getMigrationClass(2) instanceof AddUser);
-        $this->assertTrue($migration->getMigrationClass(3) instanceof AddProfile);
-        $this->assertTrue($migration->getMigrationClass(4) instanceof DropProfile);
+        $this->assertTrue($migration->getMigrationClass(1) instanceof Migration_001);
+        $this->assertTrue($migration->getMigrationClass(2) instanceof Migration_002);
+        $this->assertTrue($migration->getMigrationClass(3) instanceof Migration_003);
+        $this->assertTrue($migration->getMigrationClass(4) instanceof Migration_004);
         $this->assertFalse($this->conn->import->tableExists('migration_phonenumber'));
         $this->assertFalse($this->conn->import->tableExists('migration_user'));
         $this->assertFalse($this->conn->import->tableExists('migration_profile'));
         $this->assertEqual(array(
-          1 => 'AddPhonenumber',
-          2 => 'AddUser',
-          3 => 'AddProfile',
-          4 => 'DropProfile',
-          5 => 'Test5',
-          6 => 'Test6',
-          7 => 'Test7',
-          8 => 'Test8',
-          9 => 'Test9',
-          10 => 'Test10',
-          11 => 'Test11',
+          1 => 'migration_classes\release_1\Migration_001',
+          2 => 'migration_classes\release_1\Migration_002',
+          3 => 'migration_classes\release_1\Migration_003',
+          4 => 'migration_classes\release_1\Migration_004',
+          5 => 'migration_classes\release_2\Migration_005',
+          6 => 'migration_classes\release_2\Migration_006',
+          7 => 'migration_classes\release_2\Migration_007',
+          8 => 'migration_classes\release_2\Migration_008',
+          9 => 'migration_classes\release_3\Migration_009',
+          10 => 'migration_classes\release_3\Migration_010',
+          11 => 'migration_classes\release_3\Migration_011',
         ), $migration->getMigrationClasses());
     }
 
