@@ -32,9 +32,6 @@
     "autoload": {
         "psr-0": {
             "Doctrine_": "lib/"
-        },
-        "psr-4": {
-            "migration_classes\\": "tests/migration_classes/"
         }
     },
     "extra": {
