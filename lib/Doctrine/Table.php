@@ -2776,7 +2776,7 @@ class Doctrine_Table extends Doctrine_Configurable implements Countable, Seriali
 
         // Sort field names by length - smallest first
         // and then reverse so that largest is first
-        usort($fields, $this->isGreaterThan(...));
+        usort($fields, array($this, 'isGreaterThan'));
         $fields = array_reverse(array_unique($fields));
 
         // Identify fields and operators
