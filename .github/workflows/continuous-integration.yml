@@ -39,4 +39,4 @@ jobs:
                 composer-options: "--optimize-autoloader"
 
             - name: "Run Tests"
-              run: "cd tests && php run.php"
+              run: "cd tests && php index.php"
