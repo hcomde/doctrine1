@@ -35,6 +35,8 @@ jobs:
 
             - name: "Install dependencies with Composer"
               uses: "ramsey/composer-install@2.2.0"
+              with:
+                composer-options: "--optimize-autoloader"
 
             - name: "Run Tests"
               run: "cd tests && php run.php"
