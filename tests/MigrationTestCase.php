@@ -19,10 +19,10 @@
  * <http://www.doctrine-project.org>.
  */
 
-use migration_classes\release_1\Migration_001;
-use migration_classes\release_1\Migration_002;
-use migration_classes\release_1\Migration_003;
-use migration_classes\release_1\Migration_004;
+use migrationClasses\release1\Migration001;
+use migrationClasses\release1\Migration002;
+use migrationClasses\release1\Migration003;
+use migrationClasses\release1\Migration004;
 
 /**
  * Doctrine_Migration_TestCase
@@ -47,93 +47,90 @@ class Doctrine_Migration_TestCase extends Doctrine_UnitTestCase
 
     public function testMigration()
     {
-        $this->pass();
-//        $migration = new Doctrine_Migration('migration_classes');
-//        $this->assertFalse($migration->hasMigrated());
-//        $migration->setCurrentVersion(3);
-//        $migration->migrate(0);
-//        $this->assertEqual($migration->getCurrentVersion(), 0);
-//        $this->assertEqual($migration->getLatestVersion(), 11);
-//        $this->assertEqual($migration->getNextVersion(), 12);
-//        $current = $migration->getCurrentVersion();
-//        $migration->setCurrentVersion(100);
-//        $this->assertEqual($migration->getCurrentVersion(), 100);
-//        $migration->setCurrentVersion($current);
-//
-//        $migration->migrate(3);
-//        $this->assertTrue($migration->hasMigrated());
-//        $this->assertEqual($migration->getCurrentVersion(), 3);
-//        $this->assertTrue($this->conn->import->tableExists('migration_phonenumber'));
-//        $this->assertTrue($this->conn->import->tableExists('migration_user'));
-//        $this->assertTrue($this->conn->import->tableExists('migration_profile'));
-//        $migration->migrate(4);
-//        $this->assertFalse($this->conn->import->tableExists('migration_profile'));
-//
-//        $migration->migrate(0);
-//        $this->assertEqual($migration->getCurrentVersion(), 0);
-//        $this->assertTrue($migration->getMigrationClass(1) instanceof Migration_001);
-//        $this->assertTrue($migration->getMigrationClass(2) instanceof Migration_002);
-//        $this->assertTrue($migration->getMigrationClass(3) instanceof Migration_003);
-//        $this->assertTrue($migration->getMigrationClass(4) instanceof Migration_004);
-//        $this->assertFalse($this->conn->import->tableExists('migration_phonenumber'));
-//        $this->assertFalse($this->conn->import->tableExists('migration_user'));
-//        $this->assertFalse($this->conn->import->tableExists('migration_profile'));
-//        $this->assertEqual(array(
-//          1 => 'migration_classes\release_1\Migration_001',
-//          2 => 'migration_classes\release_1\Migration_002',
-//          3 => 'migration_classes\release_1\Migration_003',
-//          4 => 'migration_classes\release_1\Migration_004',
-//          5 => 'migration_classes\release_2\Migration_005',
-//          6 => 'migration_classes\release_2\Migration_006',
-//          7 => 'migration_classes\release_2\Migration_007',
-//          8 => 'migration_classes\release_2\Migration_008',
-//          9 => 'migration_classes\release_3\Migration_009',
-//          10 => 'migration_classes\release_3\Migration_010',
-//          11 => 'migration_classes\release_3\Migration_011',
-//        ), $migration->getMigrationClasses());
+        $migration = new Doctrine_Migration('migrationClasses');
+        $this->assertFalse($migration->hasMigrated());
+        $migration->setCurrentVersion(3);
+        $migration->migrate(0);
+        $this->assertEqual($migration->getCurrentVersion(), 0);
+        $this->assertEqual($migration->getLatestVersion(), 11);
+        $this->assertEqual($migration->getNextVersion(), 12);
+        $current = $migration->getCurrentVersion();
+        $migration->setCurrentVersion(100);
+        $this->assertEqual($migration->getCurrentVersion(), 100);
+        $migration->setCurrentVersion($current);
+
+        $migration->migrate(3);
+        $this->assertTrue($migration->hasMigrated());
+        $this->assertEqual($migration->getCurrentVersion(), 3);
+        $this->assertTrue($this->conn->import->tableExists('migration_phonenumber'));
+        $this->assertTrue($this->conn->import->tableExists('migration_user'));
+        $this->assertTrue($this->conn->import->tableExists('migration_profile'));
+        $migration->migrate(4);
+        $this->assertFalse($this->conn->import->tableExists('migration_profile'));
+
+        $migration->migrate(0);
+        $this->assertEqual($migration->getCurrentVersion(), 0);
+        $this->assertTrue($migration->getMigrationClass(1) instanceof Migration001);
+        $this->assertTrue($migration->getMigrationClass(2) instanceof Migration002);
+        $this->assertTrue($migration->getMigrationClass(3) instanceof Migration003);
+        $this->assertTrue($migration->getMigrationClass(4) instanceof Migration004);
+        $this->assertFalse($this->conn->import->tableExists('migration_phonenumber'));
+        $this->assertFalse($this->conn->import->tableExists('migration_user'));
+        $this->assertFalse($this->conn->import->tableExists('migration_profile'));
+        $this->assertEqual(array(
+          1 => 'migrationClasses\release1\Migration001',
+          2 => 'migrationClasses\release1\Migration002',
+          3 => 'migrationClasses\release1\Migration003',
+          4 => 'migrationClasses\release1\Migration004',
+          5 => 'migrationClasses\release2\Migration005',
+          6 => 'migrationClasses\release2\Migration006',
+          7 => 'migrationClasses\release2\Migration007',
+          8 => 'migrationClasses\release2\Migration008',
+          9 => 'migrationClasses\release3\Migration009',
+          10 => 'migrationClasses\release3\Migration010',
+          11 => 'migrationClasses\release3\Migration011',
+        ), $migration->getMigrationClasses());
     }
 
     public function testMigrateClearsErrors()
     {
-        $this->pass();
-//        $migration = new Doctrine_Migration('migration_classes');
-//        $migration->setCurrentVersion(3);
-//        try {
-//            $migration->migrate(3);
-//        } catch (Doctrine_Migration_Exception $e) {
-//            $this->assertTrue($migration->hasErrors());
-//            $this->assertEqual(1, $migration->getNumErrors());
-//        }
-//
-//        try {
-//            $migration->migrate(3);
-//        } catch (Doctrine_Migration_Exception $e) {
-//            $this->assertTrue($migration->hasErrors());
-//            $this->assertEqual(1, $migration->getNumErrors());
-//        }
-//
-//        $migration->clearErrors();
-//        $this->assertFalse($migration->hasErrors());
-//        $this->assertEqual(0, $migration->getNumErrors());
+        $migration = new Doctrine_Migration('migrationClasses');
+        $migration->setCurrentVersion(3);
+        try {
+            $migration->migrate(3);
+        } catch (Doctrine_Migration_Exception $e) {
+            $this->assertTrue($migration->hasErrors());
+            $this->assertEqual(1, $migration->getNumErrors());
+        }
+
+        try {
+            $migration->migrate(3);
+        } catch (Doctrine_Migration_Exception $e) {
+            $this->assertTrue($migration->hasErrors());
+            $this->assertEqual(1, $migration->getNumErrors());
+        }
+
+        $migration->clearErrors();
+        $this->assertFalse($migration->hasErrors());
+        $this->assertEqual(0, $migration->getNumErrors());
     }
 
     public function testMigrationClassNameInflected()
     {
-        $this->pass();
-//        $tests = array('test-class-Name',
-//                       'test_class_name',
-//                       'test:class:name',
-//                       'test(class)name',
-//                       'test*class*name',
-//                       'test class name',
-//                       'test&class&name');
-//
-//        $builder = new Doctrine_Migration_Builder();
-//
-//        foreach ($tests as $test) {
-//            $code = $builder->generateMigrationClass($test);
-//            $this->assertTrue($code);
-//        }
+        $tests = array('test-class-Name',
+                       'test_class_name',
+                       'test:class:name',
+                       'test(class)name',
+                       'test*class*name',
+                       'test class name',
+                       'test&class&name');
+
+        $builder = new Doctrine_Migration_Builder();
+
+        foreach ($tests as $test) {
+            $code = $builder->generateMigrationClass($test);
+            $this->assertTrue($code);
+        }
     }
 }
 

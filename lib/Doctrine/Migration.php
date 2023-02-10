@@ -127,13 +127,15 @@ class Doctrine_Migration
      * @param string|null $directory  Directory to load migration classes from
      * @return void
      */
-    public function loadMigrationClassesFromDirectory(?string $directory = null): void {
-        $directory = $directory ?: $this->_migrationClassesDirectory;
+    public function loadMigrationClassesFromDirectory($directory = null) {
+        $directory = $directory ? $directory : $this->_migrationClassesDirectory;
         $rootDir = getcwd();
-        $classesToLoad = [];
+        $classesToLoad = array();
         foreach ((array) $directory as $dir) {
-            $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir),
-                RecursiveIteratorIterator::LEAVES_ONLY);
+            $it = new RecursiveIteratorIterator(
+              new RecursiveDirectoryIterator($dir),
+              RecursiveIteratorIterator::LEAVES_ONLY
+            );
 
             if (isset(self::$_migrationClassesForDirectories[$dir])) {
                 foreach (self::$_migrationClassesForDirectories[$dir] as $num => $className) {
@@ -141,12 +143,18 @@ class Doctrine_Migration
                 }
             }
 
+            $loadedFiles = isset(self::$_migrationClassesForDirectories[$dir])
+              ? self::$_migrationClassesForDirectories[$dir]
+              : array();
+
             foreach ($it as $file) {
                 $info = pathinfo((string) $file->getFileName());
-                if (isset($info['extension']) && $info['extension'] == 'php') {
+                if (isset($info['extension']) && $info['extension'] === 'php') {
                     $fullPath = $file->getPathname();
                     $className = str_replace([$rootDir, '/', '.php'], ['', '\\', ''], (string) $fullPath);
-                    $classesToLoad[$className] = ['className' => $className, 'path' => $fullPath];
+                    if (!in_array($className, $loadedFiles , true)) {
+                      $classesToLoad[$className] = ['className' => $className, 'path' => $fullPath];
+                    }
                 }
             }
         }

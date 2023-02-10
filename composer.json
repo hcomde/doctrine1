@@ -31,15 +31,14 @@
     },
     "autoload": {
         "psr-0": {
-            "Doctrine_": "lib/"
+            "Doctrine_": "lib/",
+            "migrationClasses\\": "tests/",
+            "Ticket\\": "tests/"
         }
     },
     "extra": {
         "branch-alias": {
             "dev-master": "1.4-dev"
         }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^9.5"
     }
 }

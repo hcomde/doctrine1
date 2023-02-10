@@ -34,9 +34,8 @@ class Doctrine_Ticket_DC221_TestCase extends Doctrine_UnitTestCase
 {
     public function testTest()
     {
-        $this->pass();
-//        $migration1 = new Doctrine_Migration(dirname(__FILE__) . '/DC221');
-//        $migration2 = new Doctrine_Migration(dirname(__FILE__) . '/DC221');
-//        $this->assertEqual($migration1->getMigrationClasses(), $migration2->getMigrationClasses());
+        $migration1 = new Doctrine_Migration(dirname(__FILE__) . '/DC221');
+        $migration2 = new Doctrine_Migration(dirname(__FILE__) . '/DC221');
+        $this->assertEqual($migration1->getMigrationClasses(), $migration2->getMigrationClasses());
     }
 }
