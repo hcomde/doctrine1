@@ -47,7 +47,7 @@ class Doctrine_Validator extends Doctrine_Locator_Injectable
     public static function getValidator($name)
     {
         if ( ! isset(self::$validators[$name])) {
-            $class = 'Doctrine_Validator_' . ucwords(strtolower($name));
+            $class = 'Doctrine_Validator_' . ucwords(strtolower((string) $name));
             if (class_exists($class)) {
                 self::$validators[$name] = new $class;
             } else if (class_exists($name)) {

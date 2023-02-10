@@ -69,8 +69,8 @@ class Doctrine_Import_Mysql extends Doctrine_Import
         $nonUnique = 'Non_unique';
         if ($this->conn->getAttribute(Doctrine_Core::ATTR_FIELD_CASE) && ($this->conn->getAttribute(Doctrine_Core::ATTR_PORTABILITY) & Doctrine_Core::PORTABILITY_FIX_CASE)) {
             if ($this->conn->getAttribute(Doctrine_Core::ATTR_FIELD_CASE) == CASE_LOWER) {
-                $keyName = strtolower($keyName);
-                $nonUnique = strtolower($nonUnique);
+                $keyName = strtolower((string) $keyName);
+                $nonUnique = strtolower((string) $nonUnique);
             } else {
                 $keyName = strtoupper($keyName);
                 $nonUnique = strtoupper($nonUnique);
@@ -188,8 +188,8 @@ class Doctrine_Import_Mysql extends Doctrine_Import
         $nonUnique = 'Non_unique';
         if ($this->conn->getAttribute(Doctrine_Core::ATTR_FIELD_CASE) && ($this->conn->getAttribute(Doctrine_Core::ATTR_PORTABILITY) & Doctrine_Core::PORTABILITY_FIX_CASE)) {
             if ($this->conn->getAttribute(Doctrine_Core::ATTR_FIELD_CASE) == CASE_LOWER) {
-                $keyName = strtolower($keyName);
-                $nonUnique = strtolower($nonUnique);
+                $keyName = strtolower((string) $keyName);
+                $nonUnique = strtolower((string) $nonUnique);
             } else {
                 $keyName = strtoupper($keyName);
                 $nonUnique = strtoupper($nonUnique);

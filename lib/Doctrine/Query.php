@@ -1278,7 +1278,7 @@ class Doctrine_Query extends Doctrine_Query_Abstract implements Countable
             // what about composite keys?
             $idColumnName = $table->getColumnName($table->getIdentifier());
 
-            switch (strtolower($this->_conn->getDriverName())) {
+            switch (strtolower((string) $this->_conn->getDriverName())) {
                 case 'mysql':
                     $this->useQueryCache(false);
 
@@ -1637,7 +1637,7 @@ class Doctrine_Query extends Doctrine_Query_Abstract implements Countable
 
         foreach ($parts as $partName => $subParts) {
             $subParts = trim((string) $subParts);
-            $partName = strtolower($partName);
+            $partName = strtolower((string) $partName);
             switch ($partName) {
                 case 'create':
                     $this->_type = self::CREATE;

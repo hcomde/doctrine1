@@ -64,7 +64,7 @@ class Doctrine_Query_Tokenizer
         foreach ($tokens as $index => $token) {
             $token = trim((string) $token);
 
-            switch (strtolower($token)) {
+            switch (strtolower((string) $token)) {
                 case 'delete':
                 case 'update':
                 case 'select':

@@ -136,7 +136,7 @@ class Doctrine_DataDict_Sqlite extends Doctrine_DataDict
             $field['length'] = $length;
         }
 
-        $dbType = strtolower($field['type']);
+        $dbType = strtolower((string) $field['type']);
 
         if ( ! $dbType) {
             throw new Doctrine_DataDict_Exception('Missing "type" from field definition');

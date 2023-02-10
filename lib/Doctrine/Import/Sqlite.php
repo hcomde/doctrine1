@@ -98,7 +98,7 @@ class Doctrine_Import_Sqlite extends Doctrine_Import
         $query = "SELECT sql FROM sqlite_master WHERE type='index' AND ";
 
         if ($this->conn->getAttribute(Doctrine_Core::ATTR_FIELD_CASE) && ($this->conn->getAttribute(Doctrine_Core::ATTR_PORTABILITY) & Doctrine_Core::PORTABILITY_FIX_CASE)) {
-            $query .= 'LOWER(tbl_name) = ' . strtolower($table);
+            $query .= 'LOWER(tbl_name) = ' . strtolower((string) $table);
         } else {
             $query .= 'tbl_name = ' . $table;
         }

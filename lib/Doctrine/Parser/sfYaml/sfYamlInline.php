@@ -388,7 +388,7 @@ class sfYamlInline
 
     switch (true)
     {
-      case 'null' == strtolower($scalar):
+      case 'null' == strtolower((string) $scalar):
       case '' == $scalar:
       case '~' == $scalar:
         return null;
@@ -402,9 +402,9 @@ class sfYamlInline
         $raw = $scalar;
         $cast = intval($scalar);
         return '0' == $scalar[0] ? octdec($scalar) : (((string) $raw == (string) $cast) ? $cast : $raw);
-      case in_array(strtolower($scalar), $trueValues):
+      case in_array(strtolower((string) $scalar), $trueValues):
         return true;
-      case in_array(strtolower($scalar), $falseValues):
+      case in_array(strtolower((string) $scalar), $falseValues):
         return false;
       case is_numeric($scalar):
         return '0x' == $scalar[0].$scalar[1] ? hexdec($scalar) : floatval($scalar);

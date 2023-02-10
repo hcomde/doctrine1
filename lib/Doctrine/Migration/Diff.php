@@ -371,7 +371,7 @@ class Doctrine_Migration_Diff
      */
     protected function _generateModels($prefix, $item)
     {
-        $path = $this->_tmpPath . DIRECTORY_SEPARATOR . strtolower($prefix) . '_doctrine_tmp_dirs';
+        $path = $this->_tmpPath . DIRECTORY_SEPARATOR . strtolower((string) $prefix) . '_doctrine_tmp_dirs';
         $options = array(
             'classPrefix' => $prefix,
             'generateBaseClasses' => false

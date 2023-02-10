@@ -482,7 +482,7 @@ class Doctrine_Table extends Doctrine_Configurable implements Countable, Seriali
 
                         $e2 = explode(':', $option);
 
-                        switch (strtolower($e2[0])) {
+                        switch (strtolower((string) $e2[0])) {
                             case 'autoincrement':
                             case 'autoinc':
                                 if ($value !== false) {
@@ -1328,10 +1328,10 @@ class Doctrine_Table extends Doctrine_Configurable implements Countable, Seriali
                 $fieldName = $parts[0];
             }
 
-            $name = strtolower($parts[0]);
+            $name = strtolower((string) $parts[0]);
         } else {
             $fieldName = $name;
-            $name = strtolower($name);
+            $name = strtolower((string) $name);
         }
 
         $name = trim($name);
@@ -1390,7 +1390,7 @@ class Doctrine_Table extends Doctrine_Configurable implements Countable, Seriali
         $options['type'] = $type;
         $options['length'] = $length;
 
-        if (strtolower($fieldName) != $name) {
+        if (strtolower((string) $fieldName) != $name) {
             $options['alias'] = $fieldName;
         }
 
@@ -1476,7 +1476,7 @@ class Doctrine_Table extends Doctrine_Configurable implements Countable, Seriali
      */
     public function hasColumn($columnName)
     {
-        return isset($this->_columns[strtolower($columnName)]);
+        return isset($this->_columns[strtolower((string) $columnName)]);
     }
 
     /**
