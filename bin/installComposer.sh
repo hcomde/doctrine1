@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 SCRIPT_DIR=$(dirname "$(readlink -e "$0")")
 
 # Running composer install
