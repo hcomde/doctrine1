@@ -825,21 +825,33 @@ class Doctrine_Import_Builder extends Doctrine_Builder
 
             foreach ($properties as $propItem)
             {
-                $ret[] = sprintf("@property %s $%s %s", str_pad((string) $propItem[0], $maxTypeSize, " "), str_pad((string) $propItem[1], $maxNameSize-1, " "), $propItem[2]);
+                $ret[] = sprintf(
+                  "@property %s $%s %s",
+                  str_pad((string) $propItem[0], $maxTypeSize, " "),
+                  str_pad((string) $propItem[1], $maxNameSize-1, " "), $propItem[2]
+                );
             }
             $ret[] = " ";
 
             foreach ($getters as $getterItem)
             {
                 $methodName = sprintf("get%s()",ucfirst((string) $getterItem[1]));
-                $ret[] = sprintf("@method %s %s %s", str_pad((string) $getterItem[0], $maxTypeSize+2, " "), str_pad(($methodName), $maxNameSize, " "), $getterItem[2]);
+                $ret[] = sprintf(
+                  "@method %s %s %s",
+                  str_pad((string) $getterItem[0], $maxTypeSize+2, " "),
+                  str_pad(($methodName), $maxNameSize, " "), $getterItem[2]
+                );
             }
             $ret[] = " ";
 
             foreach ($setters as $setterItem)
             {
                 $methodName = sprintf('set%s(%s $val)',ucfirst((string) $setterItem[1]), $setterItem[2]);
-                $ret[] = sprintf("@method %s %s %s", str_pad((string) $setterItem[0], $maxTypeSize+2, " "), str_pad(($methodName), $maxNameSize, " "), $setterItem[3]);
+                $ret[] = sprintf(
+                  "@method %s %s %s",
+                  str_pad((string) $setterItem[0], $maxTypeSize+2, " "),
+                  str_pad(($methodName), $maxNameSize, " "), $setterItem[3]
+                );
             }
             //$ret = array_merge($ret, $getter, $setter);
         }
@@ -1037,7 +1049,7 @@ class Doctrine_Import_Builder extends Doctrine_Builder
                 }
 
                 foreach ($value as $attr) {
-                    $const = "Doctrine_Core::" . strtoupper($key) . "_" . strtoupper((string) $attr);
+                    $const = "Doctrine_Core::" . strtoupper((string) $key) . "_" . strtoupper((string) $attr);
                     if (defined($const)) {
                         $values[] = $const;
                     } else {
@@ -1047,7 +1059,7 @@ class Doctrine_Import_Builder extends Doctrine_Builder
             }
 
             $string = implode(' ^ ', $values);
-            $build .= "        \$this->setAttribute(Doctrine_Core::ATTR_" . strtoupper($key) . ", " . $string . ");" . PHP_EOL;
+            $build .= "        \$this->setAttribute(Doctrine_Core::ATTR_" . strtoupper((string) $key) . ", " . $string . ");" . PHP_EOL;
         }
 
         return $build;
@@ -1269,7 +1281,7 @@ class Doctrine_Import_Builder extends Doctrine_Builder
         );
 
         if ($this->_eolStyle) {
-            $content = str_replace(PHP_EOL, $this->_eolStyle, $content);
+            $content = str_replace(PHP_EOL, (string) $this->_eolStyle, $content);
         }
 
         return $content;
@@ -1432,7 +1444,7 @@ class Doctrine_Import_Builder extends Doctrine_Builder
         $code .= PHP_EOL . $definitionCode;
 
         if ($this->_eolStyle) {
-            $code = str_replace(PHP_EOL, $this->_eolStyle, $code);
+            $code = str_replace(PHP_EOL, (string) $this->_eolStyle, $code);
         }
 
         Doctrine_Lib::makeDirectories(dirname($writePath));
