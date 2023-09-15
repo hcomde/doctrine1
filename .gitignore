@@ -1,3 +1,7 @@
+# Ignore IDE settings (public github repository!)
+/.idea
+
+# Doctrine1 ignored files
 tests/DoctrineTest/doctrine_tests/*
 *TestCase.php
 /composer.lock
