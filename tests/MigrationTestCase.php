@@ -19,6 +19,11 @@
  * <http://www.doctrine-project.org>.
  */
 
+use migrationClasses\release1\Migration001;
+use migrationClasses\release1\Migration002;
+use migrationClasses\release1\Migration003;
+use migrationClasses\release1\Migration004;
+
 /**
  * Doctrine_Migration_TestCase
  *
@@ -42,7 +47,7 @@ class Doctrine_Migration_TestCase extends Doctrine_UnitTestCase
 
     public function testMigration()
     {
-        $migration = new Doctrine_Migration('migration_classes');
+        $migration = new Doctrine_Migration('migrationClasses');
         $this->assertFalse($migration->hasMigrated());
         $migration->setCurrentVersion(3);
         $migration->migrate(0);
@@ -65,31 +70,31 @@ class Doctrine_Migration_TestCase extends Doctrine_UnitTestCase
 
         $migration->migrate(0);
         $this->assertEqual($migration->getCurrentVersion(), 0);
-        $this->assertTrue($migration->getMigrationClass(1) instanceof AddPhonenumber);
-        $this->assertTrue($migration->getMigrationClass(2) instanceof AddUser);
-        $this->assertTrue($migration->getMigrationClass(3) instanceof AddProfile);
-        $this->assertTrue($migration->getMigrationClass(4) instanceof DropProfile);
+        $this->assertTrue($migration->getMigrationClass(1) instanceof Migration001);
+        $this->assertTrue($migration->getMigrationClass(2) instanceof Migration002);
+        $this->assertTrue($migration->getMigrationClass(3) instanceof Migration003);
+        $this->assertTrue($migration->getMigrationClass(4) instanceof Migration004);
         $this->assertFalse($this->conn->import->tableExists('migration_phonenumber'));
         $this->assertFalse($this->conn->import->tableExists('migration_user'));
         $this->assertFalse($this->conn->import->tableExists('migration_profile'));
         $this->assertEqual(array(
-          1 => 'AddPhonenumber',
-          2 => 'AddUser',
-          3 => 'AddProfile',
-          4 => 'DropProfile',
-          5 => 'Test5',
-          6 => 'Test6',
-          7 => 'Test7',
-          8 => 'Test8',
-          9 => 'Test9',
-          10 => 'Test10',
-          11 => 'Test11',
+          1 => 'migrationClasses\release1\Migration001',
+          2 => 'migrationClasses\release1\Migration002',
+          3 => 'migrationClasses\release1\Migration003',
+          4 => 'migrationClasses\release1\Migration004',
+          5 => 'migrationClasses\release2\Migration005',
+          6 => 'migrationClasses\release2\Migration006',
+          7 => 'migrationClasses\release2\Migration007',
+          8 => 'migrationClasses\release2\Migration008',
+          9 => 'migrationClasses\release3\Migration009',
+          10 => 'migrationClasses\release3\Migration010',
+          11 => 'migrationClasses\release3\Migration011',
         ), $migration->getMigrationClasses());
     }
 
     public function testMigrateClearsErrors()
     {
-        $migration = new Doctrine_Migration('migration_classes');
+        $migration = new Doctrine_Migration('migrationClasses');
         $migration->setCurrentVersion(3);
         try {
             $migration->migrate(3);
