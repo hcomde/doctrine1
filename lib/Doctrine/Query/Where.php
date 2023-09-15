@@ -80,7 +80,7 @@ class Doctrine_Query_Where extends Doctrine_Query_Condition
                 // DC-843 Modifiy operator for MSSQL
                 // @TODO apply database dependent parsing
                 //       list($leftExpr, $operator, $rightExpr) = $conn->modifyWhereCondition($leftExpr, $operator, $rightExpr);
-                $driverName = strtolower($conn->getDriverName());
+                $driverName = $conn ? strtolower((string) $conn->getDriverName()) : null;
                 if ($driverName == 'mssql' && !empty($reference)) {
                     $cmp = $this->query->getQueryComponent($reference);
                     $table = $cmp['table'];
