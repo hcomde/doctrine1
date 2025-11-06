@@ -2,8 +2,9 @@
 set -e
 
 SCRIPT_DIR=$(dirname "$(readlink -e "$0")")
+source ${SCRIPT_DIR}/projectVars.sh
 
 # Running composer install
 docker run -it --rm --tty --name doctrine1_composer \
   -v "${SCRIPT_DIR}/../:/app" \
-    composer:2.2 install --optimize-autoloader
+    composer:${COMPOSER_TAG} ${@}
